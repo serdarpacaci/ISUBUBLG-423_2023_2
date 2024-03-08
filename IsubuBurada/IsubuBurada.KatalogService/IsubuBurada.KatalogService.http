@@ -1,0 +1,6 @@
+@IsubuBurada.KatalogService_HostAddress = http://localhost:5169
+
+GET {{IsubuBurada.KatalogService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
