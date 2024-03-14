@@ -1,9 +1,11 @@
 ﻿using IsubuBurada.KatalogService.Dtos;
 using IsubuBurada.KatalogService.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IsubuBurada.KatalogService.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UrunController : ControllerBase
