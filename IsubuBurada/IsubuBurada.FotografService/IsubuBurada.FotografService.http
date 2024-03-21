@@ -1,0 +1,6 @@
+@IsubuBurada.FotografService_HostAddress = http://localhost:5118
+
+GET {{IsubuBurada.FotografService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

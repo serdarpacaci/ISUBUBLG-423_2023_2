@@ -5,6 +5,7 @@
 using IdentityServer4;
 using IsubuBurada.IdentityServer.Data;
 using IsubuBurada.IdentityServer.Models;
+using IsubuBurada.IdentityServer.UserValidator;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -57,6 +58,8 @@ namespace IsubuBurada.IdentityServer
             // not recommended for production - you need to store your key material somewhere secure
             builder.AddDeveloperSigningCredential();
 
+            builder.AddResourceOwnerValidator<IsubuResourceOwnerPasswordValidator>();
+
             services.AddAuthentication()
                 .AddGoogle(options =>
                 {
@@ -82,6 +85,8 @@ namespace IsubuBurada.IdentityServer
 
             app.UseRouting();
             app.UseIdentityServer();
+
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {

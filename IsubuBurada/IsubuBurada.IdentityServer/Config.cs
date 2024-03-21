@@ -43,7 +43,24 @@ namespace IsubuBurada.IdentityServer
                     AllowedScopes = { "kategori", IdentityServerConstants.LocalApi.ScopeName },
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     AccessTokenLifetime = (int)TimeSpan.FromSeconds(30).TotalSeconds,
-                    
+                },
+                new Client
+                {
+                    ClientId = "IsubuBuradaMvcForUser",
+                    ClientName = "ISUBU burada Satış Uygulaması",
+                    ClientSecrets = { new Secret("IsubuBuradaForUser".Sha256())},
+                    AllowedScopes = { "kategori", 
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Email,
+                        IdentityServerConstants.LocalApi.ScopeName
+                    },
+                    AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
+                    AllowOfflineAccess = true,
+                    AccessTokenLifetime = (int)TimeSpan.FromMinutes(1).TotalSeconds,
+                    RefreshTokenExpiration = TokenExpiration.Absolute,
+                    AbsoluteRefreshTokenLifetime = (int)TimeSpan.FromDays(30).TotalSeconds,
+                    RefreshTokenUsage = TokenUsage.OneTimeOnly
                 }
                 //// m2m client credentials flow client
                 //new Client
