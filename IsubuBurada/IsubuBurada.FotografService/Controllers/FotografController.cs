@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IsubuBurada.FotografService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class FotografController : ControllerBase
     {
         private readonly string _fotografKlasoru;
@@ -60,6 +62,19 @@ namespace IsubuBurada.FotografService.Controllers
             using var stream = new FileStream(filePath, FileMode.Create);
             await fotograf.CopyToAsync(stream, cancellationToken);
 
+            return Ok();
+        }
+
+        [HttpDelete]
+        public IActionResult Sil(string fileName)
+        {
+            var filePath = Path.Combine(_fotografKlasoru, fileName);
+
+            if (System.IO.File.Exists(filePath))
+            {
+                System.IO.File.Delete(filePath);
+            }
+            
             return Ok();
         }
     }

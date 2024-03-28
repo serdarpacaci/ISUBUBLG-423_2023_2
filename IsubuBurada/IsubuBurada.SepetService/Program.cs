@@ -1,7 +1,7 @@
 
-using Microsoft.AspNetCore.Authentication.JwtBearer;
+using IsubuBurada.SepetService.Models;
 
-namespace IsubuBurada.FotografService
+namespace IsubuBurada.SepetService
 {
     public class Program
     {
@@ -10,26 +10,17 @@ namespace IsubuBurada.FotografService
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            var redisSection = builder.Configuration.GetSection("RedisSettings");
+            builder.Services.Configure<RedisSettings>(redisSection);
+
+            builder.Services.AddSingleton<RedisService>();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-
-            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-               .AddJwtBearer(x =>
-               {
-                   x.Authority = "https://localhost:5001";
-                   x.Audience = "resource_fotograf";
-                   x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
-                   {
-                       ClockSkew = TimeSpan.FromSeconds(20),
-                       RequireExpirationTime = true,
-                       ValidateLifetime = true,
-                   };
-               });
-
+            builder.Services.AddMemoryCache();
 
             var app = builder.Build();
 
@@ -42,7 +33,6 @@ namespace IsubuBurada.FotografService
 
             app.UseHttpsRedirection();
 
-            app.UseAuthentication();
             app.UseAuthorization();
 
 

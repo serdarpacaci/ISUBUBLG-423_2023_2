@@ -1,0 +1,6 @@
+@IsubuBurada.SepetService_HostAddress = http://localhost:5012
+
+GET {{IsubuBurada.SepetService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

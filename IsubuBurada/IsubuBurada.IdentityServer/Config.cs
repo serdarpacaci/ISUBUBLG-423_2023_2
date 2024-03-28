@@ -15,6 +15,7 @@ namespace IsubuBurada.IdentityServer
             new ApiResource[]
             {
                 new ApiResource("resource_katalog") { Scopes = { "kategori" }},
+                new ApiResource("resource_fotograf") { Scopes = { "fotograf" }},
                 new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
             };
 
@@ -29,6 +30,7 @@ namespace IsubuBurada.IdentityServer
             new ApiScope[]
             {
                 new ApiScope("kategori"),
+                new ApiScope("fotograf"),
                 new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
             };
 
@@ -40,7 +42,7 @@ namespace IsubuBurada.IdentityServer
                     ClientId = "IsubuBuradaSatisMVC",
                     ClientName = "ISUBU Burada satış Uygulaması",
                     ClientSecrets = { new Secret("IsubuBuradaSecret".Sha256())},
-                    AllowedScopes = { "kategori", IdentityServerConstants.LocalApi.ScopeName },
+                    AllowedScopes = { "kategori", IdentityServerConstants.LocalApi.ScopeName, "fotograf" },
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     AccessTokenLifetime = (int)TimeSpan.FromSeconds(30).TotalSeconds,
                 },
