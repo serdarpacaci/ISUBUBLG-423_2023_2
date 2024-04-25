@@ -16,6 +16,7 @@ namespace IsubuBurada.IdentityServer
             {
                 new ApiResource("resource_katalog") { Scopes = { "kategori" }},
                 new ApiResource("resource_fotograf") { Scopes = { "fotograf" }},
+                new ApiResource("resource_sepet") { Scopes = { "sepet" }},
                 new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
             };
 
@@ -31,6 +32,7 @@ namespace IsubuBurada.IdentityServer
             {
                 new ApiScope("kategori"),
                 new ApiScope("fotograf"),
+                new ApiScope("sepet"),
                 new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
             };
 
@@ -51,7 +53,7 @@ namespace IsubuBurada.IdentityServer
                     ClientId = "IsubuBuradaMvcForUser",
                     ClientName = "ISUBU burada Satış Uygulaması",
                     ClientSecrets = { new Secret("IsubuBuradaForUser".Sha256())},
-                    AllowedScopes = { "kategori", 
+                    AllowedScopes = { "kategori", "sepet",
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.Email,
@@ -59,7 +61,7 @@ namespace IsubuBurada.IdentityServer
                     },
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
                     AllowOfflineAccess = true,
-                    AccessTokenLifetime = (int)TimeSpan.FromMinutes(1).TotalSeconds,
+                    AccessTokenLifetime = (int)TimeSpan.FromHours(1).TotalSeconds,
                     RefreshTokenExpiration = TokenExpiration.Absolute,
                     AbsoluteRefreshTokenLifetime = (int)TimeSpan.FromDays(30).TotalSeconds,
                     RefreshTokenUsage = TokenUsage.OneTimeOnly

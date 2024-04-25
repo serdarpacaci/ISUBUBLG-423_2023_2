@@ -1,0 +1,6 @@
+@IsubuBurada.IndirimService_HostAddress = http://localhost:5182
+
+GET {{IsubuBurada.IndirimService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
