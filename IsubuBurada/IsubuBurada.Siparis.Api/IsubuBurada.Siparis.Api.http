@@ -1,0 +1,6 @@
+@IsubuBurada.Siparis.Api_HostAddress = http://localhost:5278
+
+GET {{IsubuBurada.Siparis.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

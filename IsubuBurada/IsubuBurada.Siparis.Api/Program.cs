@@ -1,7 +1,5 @@
 
-using IsubuBurada.IndirimService.Services;
-
-namespace IsubuBurada.IndirimService
+namespace IsubuBurada.Siparis.Api
 {
     public class Program
     {
@@ -10,7 +8,6 @@ namespace IsubuBurada.IndirimService
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-            builder.Services.AddScoped<IIndirimService, MyIndirimService>();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
