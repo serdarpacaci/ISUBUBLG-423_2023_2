@@ -15,4 +15,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\IsubuBurada.Siparis.Domain\IsubuBurada.Siparis.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
