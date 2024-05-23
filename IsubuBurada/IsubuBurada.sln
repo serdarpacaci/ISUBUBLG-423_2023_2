@@ -23,9 +23,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IsubuBurada.Siparis.Persist
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IsubuBurada.Siparis.Api", "IsubuBurada.Siparis.Api\IsubuBurada.Siparis.Api.csproj", "{F0C266EF-4222-4B38-86FD-0662A153A907}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsubuBurada.Gateway", "IsubuBurada.Gateway\IsubuBurada.Gateway.csproj", "{EEB724AF-92CA-45F3-8EFD-7A1FA6602932}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IsubuBurada.Gateway", "IsubuBurada.Gateway\IsubuBurada.Gateway.csproj", "{EEB724AF-92CA-45F3-8EFD-7A1FA6602932}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsubuBurada.WebUi", "IsubuBurada.WebUi\IsubuBurada.WebUi.csproj", "{C90197C1-32F7-422A-A1F0-3B1DBDECEB08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IsubuBurada.WebUi", "IsubuBurada.WebUi\IsubuBurada.WebUi.csproj", "{C90197C1-32F7-422A-A1F0-3B1DBDECEB08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsubuBurada.PaymentService", "IsubuBurada.PaymentService\IsubuBurada.PaymentService.csproj", "{F29D814D-6CB1-4BE9-A3CF-B999CDF5C0D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IsubuBurada.Shared", "IsubuBurada.Shared\IsubuBurada.Shared.csproj", "{3C487577-91F9-43E5-8A98-FDC4F07848EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +81,14 @@ Global
 		{C90197C1-32F7-422A-A1F0-3B1DBDECEB08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C90197C1-32F7-422A-A1F0-3B1DBDECEB08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C90197C1-32F7-422A-A1F0-3B1DBDECEB08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F29D814D-6CB1-4BE9-A3CF-B999CDF5C0D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F29D814D-6CB1-4BE9-A3CF-B999CDF5C0D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F29D814D-6CB1-4BE9-A3CF-B999CDF5C0D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F29D814D-6CB1-4BE9-A3CF-B999CDF5C0D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C487577-91F9-43E5-8A98-FDC4F07848EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C487577-91F9-43E5-8A98-FDC4F07848EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C487577-91F9-43E5-8A98-FDC4F07848EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C487577-91F9-43E5-8A98-FDC4F07848EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

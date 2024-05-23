@@ -1,4 +1,7 @@
+using IsubuBurada.WebUi.Handlers;
 using IsubuBurada.WebUi.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Configuration;
 
 namespace IsubuBurada.WebUi
 {
@@ -8,8 +11,23 @@ namespace IsubuBurada.WebUi
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddScoped<IIdentityService, IdentityService>();
+            builder.Services.AddHttpContextAccessor();
+            builder.Services.AddAccessTokenManagement();
 
+            builder.Services.AddScoped<ResourceOwnerPasswordTokenHandler>();
+            builder.Services.AddScoped<ClientCredentialTokenHandler>();
+
+            //builder.Services.AddScoped<IClientCredentialTokenService, ClientCredentialTokenService>();
+            builder.Services.AddHttpClientServices(builder.Configuration);
+           
+            builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, opts =>
+            {
+                opts.LoginPath = "/Auth/SignIn";
+                opts.ExpireTimeSpan = TimeSpan.FromDays(1);
+                opts.SlidingExpiration = true;
+                opts.Cookie.Name = "isubuBurada";
+            });
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
@@ -28,6 +46,7 @@ namespace IsubuBurada.WebUi
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(

@@ -1,5 +1,7 @@
 
+using IsubuBurada.Siparis.Application.Consumers;
 using IsubuBurada.Siparis.Persistence;
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
 
 namespace IsubuBurada.Siparis.Api
@@ -16,6 +18,26 @@ namespace IsubuBurada.Siparis.Api
                 y.MigrationsAssembly("IsubuBurada.Siparis.Persistence");
             }));
             // Add services to the container.
+
+            builder.Services.AddMassTransit(x =>
+            {
+                x.AddConsumer<SiparisOlusturMessageCommandConsumer>();
+                
+                x.UsingRabbitMq((context, cfg) =>
+                {
+                    cfg.Host(builder.Configuration["RabbitMQUrl"], "/", host =>
+                    {
+                        host.Username("guest");
+                        host.Password("guest");
+                    });
+
+                    cfg.ReceiveEndpoint("siparis-olustur-service", e =>
+                    {
+                        e.ConfigureConsumer<SiparisOlusturMessageCommandConsumer>(context);
+                    });
+                  
+                });
+            });
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

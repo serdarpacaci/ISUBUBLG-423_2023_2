@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "SignIn";
+}
+@using IsubuBurada.WebUi.Dtos
+@model SignInInput
+<div class="row">
+    
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Üye Giriş Sayfası</h5>
+        </div>
+        <div class="card-body">
+            <form asp-controller="Auth" asp-action="SignIn" method="post">
+                <input type="hidden" asp-for="ReturnUrl" value="@ViewBag.ReturnUrl" />
+                <div class="mb-3">
+                    <label asp-for="UserName" for="UserName" class="form-label"></label>
+                    <input asp-for="UserName" class="form-control" id="UserName">
+                    <span class="text-danger" asp-validation-for="UserName"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Password" for="Password" class="form-label"></label>
+                    <input type="password" asp-for="Password" class="form-control" id="Password">
+                    <span class="text-danger" asp-validation-for="Password"></span>
+                </div>
+                <div>BobSmith@email.com - Pass123$</div>
+                <button type="submit" class="btn btn-success">Giriş Yap</button>
+            </form>
+        </div>
+    </div>
+</div>

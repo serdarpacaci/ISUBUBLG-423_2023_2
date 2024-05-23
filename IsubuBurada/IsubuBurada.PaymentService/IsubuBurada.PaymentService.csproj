@@ -9,18 +9,11 @@
   <ItemGroup>
     <PackageReference Include="MassTransit.AspNetCore" Version="7.3.1" />
     <PackageReference Include="MassTransit.RabbitMQ" Version="8.2.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.4" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.4">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\IsubuBurada.Shared\IsubuBurada.Shared.csproj" />
-    <ProjectReference Include="..\IsubuBurada.Siparis.Application\IsubuBurada.Siparis.Application.csproj" />
-    <ProjectReference Include="..\IsubuBurada.Siparis.Persistence\IsubuBurada.Siparis.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
